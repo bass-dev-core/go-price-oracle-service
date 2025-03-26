@@ -19,7 +19,9 @@ endif
 install:
 	go clean -modcache
 	go mod tidy
-	go mod vendor
+	go mod vendor	
+	npm i -g typescript
+	npm i
 
 prepare: install build
 

@@ -1,4 +1,3 @@
-// Файл: internal/ws/ws.go
 package ws
 
 import (
@@ -41,6 +40,8 @@ var mu sync.RWMutex
 // InitPriceStream запускает горутину для получения markPrice-обновлений
 func InitPriceStream() {
 	go connectMarkPriceStream()
+	// Инициализируем поток агрегированных торгов для символа BCHUSDT
+	InitAggregateTradeStream("bchusdt")
 }
 
 // connectMarkPriceStream устанавливает WebSocket-соединение с Binance Futures Testnet и обновляет priceData
